@@ -1,25 +1,24 @@
 const ex = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 const app= ex()
 const port=8080
 
 const con = mysql.createConnection({
   host:"localhost",
-  port:3306,
   user:"rodrigo",
   password:"123456",
-  database:"testebackend"
+  database:"testebackend",
 })
 
-app.listen(port, ()=>{console.log("start:  http://localhost:"+port);})
+app.listen(port, ()=>{console.log("start: http://localhost:"+port);})
 
 app.get('/',(req, res)=>{
   res.send('Teste Back-end iniciado')
 })
 
 con.connect((err)=>{
-  if (err){console.log(err.stack)}
+  if (err){console.log(err.code)}
   else{console.log("conected")}
 })
 
