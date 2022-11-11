@@ -1,3 +1,4 @@
+const { json } = require('express')
 const ex = require('express')
 const mysql = require('mysql2')
 
@@ -38,26 +39,26 @@ function getSQL(params) {
 // GET
 
 app.get('/usuarios',(req,res)=>{
-  res.send(JSON.parse(getSQL('usuarios')))
+  res.send(JSON.stringify(getSQL('usuarios')))
 })
 
 app.get('/usuarios/:id',(req,res)=>{
-  const id=1
-  res.send(JSON.parse(getSQL('usuarios where id_usuarios='+id)))
+  const id = req.params.id
+  res.send(JSON.stringify(getSQL('usuarios where id_usuarios='+id)))
 })
 
 app.get('/enderecos',(req,res)=>{
-  res.send(JSON.parse(getSQL('enderecos_usuarios')))
+  res.send(JSON.stringify(getSQL('enderecos_usuarios')))
 })
 
 app.get('/enderecos/:id',(req,res)=>{
-  const id=1
-  res.send(JSON.parse(getSQL('enderecos_usuarios where id_endereco_usuario='+id)))
+  const id= req.params.id
+  res.send(JSON.stringify(getSQL('enderecos_usuarios where id_endereco_usuario='+id)))
 })
 
-app.get('/enderecos/usuarios/:id',(req,res)=>{
-  const id=1
-  res.send(JSON.parse(getSQL('enderecos_usuarios where id_usuarios='+id)))
+app.get('/enderecos/usuario/:id',(req,res)=>{
+  const id= req.params.id
+  res.send(JSON.stringify(getSQL('enderecos_usuarios where id_usuarios='+id)))
 })
 
 // POST
