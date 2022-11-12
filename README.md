@@ -46,7 +46,7 @@ usuário:
 	}
 ```
 
-**ex:**
+**ex:**<br/>
 ![](./assets/post.png)
 
 ---
@@ -92,7 +92,7 @@ usuário:
 ```
 
     
-**ex:**
+**ex:**<br/>
 ![ex](./assets/put.png)
    
 
